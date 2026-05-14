@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book an Appointment - Contact Hair Xpressions | Fairfax VA</title>
+  <meta name="description" content="Book an appointment, call, or visit Hair Xpressions in Fairfax, VA. 9549 Braddock Rd, 703-978-3406. Mon to Fri 10am to 7pm, Sat 9am to 6pm. Online booking via Square." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <div data-partial="trust-bar"></div>
+  <div data-partial="navbar"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="index.html">Home</a> &nbsp;/&nbsp; Contact</div>
+      <span class="eyebrow">Book &middot; Call &middot; Visit</span>
+      <h1>Let's get you scheduled.</h1>
+      <p>Book online, call us, or send us a question. We're easy to reach - and always happy to help you choose the right service.</p>
+    </div>
+  </section>
+
+  <!-- BOOK NOW (CTA strip) -->
+  <section id="book" class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- BOOKING FORM -->
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! In the live site this submits to Square or our booking system. For now this is a prototype.');">
+          <span class="eyebrow">Request an Appointment</span>
+          <h2 style="margin-bottom:1.5rem">Tell us what you need.</h2>
+
+          <div class="form-row">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="Jane Smith" />
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;" class="form-cols">
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="you@email.com" />
+            </div>
+            <div class="form-row">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" required placeholder="703-555-0100" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="service">Service Requested</label>
+            <select id="service" name="service" required>
+              <option value="">- Choose a service -</option>
+              <optgroup label="Hair &amp; Color">
+                <option>Cut &amp; Style</option>
+                <option>Color (single process)</option>
+                <option>Highlights / Balayage</option>
+                <option>Color Correction</option>
+                <option>Blowout</option>
+              </optgroup>
+              <optgroup label="Treatments">
+                <option>Keratin Smoothing</option>
+                <option>Brazilian Blowout</option>
+                <option>Deep Conditioning</option>
+                <option>Perm</option>
+              </optgroup>
+              <optgroup label="Waxing &amp; Threading">
+                <option>Eyebrow Threading / Wax</option>
+                <option>Full Face</option>
+                <option>Body Waxing</option>
+              </optgroup>
+              <optgroup label="Brow &amp; Lash">
+                <option>Brow Lamination</option>
+                <option>Brow Tint / Henna</option>
+                <option>Lash Extensions (Full Set)</option>
+                <option>Lash Fill</option>
+                <option>Lash Perm + Tint</option>
+              </optgroup>
+              <optgroup label="Facials">
+                <option>European Facial</option>
+                <option>HydraMedic Facial</option>
+                <option>Deep Cleansing</option>
+                <option>Express Facial</option>
+              </optgroup>
+              <optgroup label="Bridal &amp; Events">
+                <option>Bridal Consultation</option>
+                <option>Special Occasion Hair</option>
+                <option>Event Makeup</option>
+              </optgroup>
+              <option>Not sure - please recommend</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="stylist">Preferred Stylist (optional)</label>
+            <select id="stylist" name="stylist">
+              <option value="">- No preference -</option>
+              <option>Sabina (Owner · Threading &amp; Lash)</option>
+              <option>Lisa (Color Educator)</option>
+              <option>Rose (Master Stylist)</option>
+              <option>Carol (Master Colorist)</option>
+              <option>Sophia (Senior Stylist)</option>
+              <option>Najia (Esthetician)</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="when">Preferred Day / Time</label>
+            <input type="text" id="when" name="when" placeholder="e.g. Saturday morning, or weekday evening" />
+          </div>
+
+          <div class="form-row">
+            <label for="notes">Notes (optional)</label>
+            <textarea id="notes" name="notes" placeholder="Anything you'd like us to know - hair length, color goals, allergies, special occasions, etc."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Request Appointment</button>
+          <p style="font-size:0.82rem; color:var(--text-muted); margin-top:1rem; text-align:center">We'll respond within 24 hours. For same-day bookings, please <a href="tel:7039783406" style="color:var(--gold-dark);font-weight:600">call us at 703-978-3406</a>.</p>
+        </form>
+
+        <!-- CONTACT INFO -->
+        <div>
+          <div class="contact-info-block">
+            <span class="eyebrow" style="color:var(--gold-light)">Visit Us</span>
+            <h3 style="color:var(--bg); margin-bottom:1.5rem">Hair Xpressions</h3>
+
+            <div class="info-item">
+              <div>
+                <div class="info-label">Address</div>
+                <div class="info-value">9549 Braddock Rd<br/>Fairfax, VA 22032</div>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div>
+                <div class="info-label">Phone</div>
+                <div class="info-value"><a href="tel:7039783406">703-978-3406</a></div>
+                <div class="info-value" style="font-size:0.92rem;opacity:0.85;margin-top:0.3rem"><a href="tel:7036067520">703-606-7520</a> <span style="opacity:0.7">(text or call)</span></div>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div>
+                <div class="info-label">Email</div>
+                <div class="info-value"><a href="mailto:info@hairxpressionsva.com">info@hairxpressionsva.com</a></div>
+              </div>
+            </div>
+
+            <div class="info-item" style="flex-direction:column;align-items:flex-start;">
+              <div class="info-label" style="margin-bottom:0.5rem">Hours</div>
+              <div class="info-value" style="width:100%">
+                <div class="footer-hours" style="color:rgba(250,247,242,0.85)">
+                  <div><span>Mon - Fri</span><strong>10am - 7pm</strong></div>
+                  <div><span>Saturday</span><strong>9am - 6pm</strong></div>
+                  <div><span>Sunday</span><strong>Closed</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MAP placeholder -->
+          <div style="margin-top:1.5rem; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/3; box-shadow:var(--shadow-sm);">
+            <iframe
+              src="https://www.google.com/maps?q=9549+Braddock+Rd+Fairfax+VA+22032&output=embed"
+              width="100%" height="100%"
+              style="border:0;"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Hair Xpressions on Google Maps"></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GIFT CARDS -->
+  <section id="gift" class="section bg-alt">
+    <div class="container">
+      <div class="promo-strip-inner" style="grid-template-columns:1fr 1fr; gap:3rem; align-items:center;">
+        <div>
+          <span class="eyebrow">Gift Cards</span>
+          <h2>Give the gift of great hair.</h2>
+          <p>E-gift cards are available in any amount, arrive instantly by email, and can be used toward any service - from a brow shape to a full bridal package. The perfect Mother's Day, birthday, anniversary, or "thank you" gift.</p>
+          <ul style="margin-bottom:1.5rem">
+            <li style="padding:0.5rem 0; border-bottom:1px solid var(--border)">✓ Instant delivery by email</li>
+            <li style="padding:0.5rem 0; border-bottom:1px solid var(--border)">✓ Any amount from $25 to $1,000</li>
+            <li style="padding:0.5rem 0; border-bottom:1px solid var(--border)">✓ Never expires</li>
+            <li style="padding:0.5rem 0; border-bottom:1px solid var(--border)">✓ Redeemable for any service or product</li>
+          </ul>
+          <a href="#" class="btn btn-primary btn-lg" onclick="event.preventDefault(); alert('In the live site this links to Square e-gift card checkout.');">Purchase a Gift Card</a>
+        </div>
+        <div class="two-col-img">
+          <img src="https://picsum.photos/seed/contact-gift/900/1100" alt="Hair Xpressions gift cards - Fairfax VA" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLICIES / FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Good To Know</span>
+        <h2>Booking &amp; visit policies.</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-q">How do I book online? <span class="icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Use the request form on this page, or book directly through our Square Appointments system. For first-time clients booking color, keratin, or lash extensions, a brief phone consult before booking helps us match you to the right stylist.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What's your cancellation policy? <span class="icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">We ask for 24 hours notice for any cancellation or rescheduling. Cancellations within 24 hours may be charged 50% of the service fee. We send reminder texts the day before to help you stay on top of appointments.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do you require a deposit? <span class="icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">For services over $200 (keratin, color corrections, bridal packages, lash extensions full sets), we ask for a 25% deposit at booking. Deposits are applied to the final cost.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is parking easy? <span class="icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes. We share a free surface lot with neighboring businesses. Spots directly in front of the salon are typically available, especially weekday mornings.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Are children welcome? <span class="icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Absolutely - many of our regulars first walked in for a kid's haircut. For safety and other clients' comfort, children should be supervised at all times. We also offer kids' cuts as a dedicated service.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do you accept walk-ins? <span class="icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">We do our best to accommodate walk-ins for short services like brow threading. For cuts, color, or facials, please call ahead - chair times are often booked.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-partial="footer"></div>
+  <script src="js/partials.js"></script>
+  <script src="js/main.js"></script>
+  <style>
+    @media (max-width: 600px) { .form-cols { grid-template-columns: 1fr !important; } }
+  </style>
+</body>
+</html>
