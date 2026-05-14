@@ -912,6 +912,23 @@ p { margin: 0 0 1.2em; color: var(--text); }
   font-weight: 600;
 }
 
+/* -------- Pricing two-col grid (replaces all inline styles) -------- */
+.pricing-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* -------- Two-col form fields -------- */
+.form-two-col,
+.form-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 /* -------- Utility -------- */
 .mt-1 { margin-top: 0.5rem; }
 .mt-2 { margin-top: 1rem; }
@@ -937,6 +954,7 @@ p { margin: 0 0 1.2em; color: var(--text); }
 @media (max-width: 880px) {
   .section { padding: 4rem 0; }
   .section-lg { padding: 5rem 0; }
+  .pricing-cols { grid-template-columns: 1fr; }
 
   /* Mobile nav */
   .nav-toggle { display: flex; }
@@ -1021,4 +1039,23 @@ p { margin: 0 0 1.2em; color: var(--text); }
   .heritage-image .badge { right: 1rem; bottom: -1rem; padding: 1rem 1.2rem; }
   .heritage-image .badge .year { font-size: 2rem; }
   .promo-strip { padding: 2.5rem 0; }
+  /* Collapse all remaining grids */
+  .pricing-cols { grid-template-columns: 1fr; }
+  .form-two-col,
+  .form-cols { grid-template-columns: 1fr; }
+  .stats-three { grid-template-columns: repeat(2, 1fr) !important; }
+  /* Hero padding tighter on small screens */
+  .hero .container { padding-top: 3rem; padding-bottom: 3rem; }
+  /* Section head margin smaller */
+  .section-head { margin-bottom: 2.5rem; }
+  /* Service card content padding */
+  .service-card .content { padding: 1.2rem; }
+}
+
+/* Touch devices - always show captions, disable hover transforms */
+@media (hover: none) {
+  .gallery-item .caption { opacity: 1; background: linear-gradient(180deg, transparent, rgba(20,15,12,0.75)); }
+  .service-card:hover { transform: none; }
+  .service-card:hover img { transform: none; }
+  .stylist-card:hover { transform: none; box-shadow: var(--shadow-sm); }
 }

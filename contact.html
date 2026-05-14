@@ -39,7 +39,7 @@
             <input type="text" id="name" name="name" required placeholder="Jane Smith" />
           </div>
 
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;" class="form-cols">
+          <div class="form-cols">
             <div class="form-row">
               <label for="email">Email</label>
               <input type="email" id="email" name="email" required placeholder="you@email.com" />
@@ -180,7 +180,7 @@
   <!-- GIFT CARDS -->
   <section id="gift" class="section bg-alt">
     <div class="container">
-      <div class="promo-strip-inner" style="grid-template-columns:1fr 1fr; gap:3rem; align-items:center;">
+      <div class="promo-strip-inner">
         <div>
           <span class="eyebrow">Gift Cards</span>
           <h2>Give the gift of great hair.</h2>
@@ -239,8 +239,5 @@
   <div data-partial="footer"></div>
   <script src="js/partials.js"></script>
   <script src="js/main.js"></script>
-  <style>
-    @media (max-width: 600px) { .form-cols { grid-template-columns: 1fr !important; } }
-  </style>
 </body>
 </html>
