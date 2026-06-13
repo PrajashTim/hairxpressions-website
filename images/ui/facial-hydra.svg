@@ -1,0 +1,17 @@
+<svg width="700" height="900" viewBox="0 0 700 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="900" fill="#F1F3EF"/>
+  <rect x="36" y="36" width="628" height="828" rx="28" fill="url(#panel)"/>
+  <circle cx="560" cy="166" r="96" fill="#C9D7D3" fill-opacity="0.44"/>
+  <circle cx="146" cy="740" r="132" fill="#DDE6E2" fill-opacity="0.62"/>
+  <text x="90" y="238" fill="#2C2520" font-family="Cormorant Garamond, Georgia, serif" font-size="74" font-weight="500">Hydrating</text>
+  <text x="90" y="312" fill="#2C2520" font-family="Cormorant Garamond, Georgia, serif" font-size="74" font-weight="500">Skin Care</text>
+  <text x="90" y="390" fill="#5D6B67" font-family="Inter, Arial, sans-serif" font-size="24">Hydration-focused care in the Hair Xpressions treatment room.</text>
+  <rect x="90" y="706" width="244" height="54" rx="27" fill="#2C2520"/>
+  <text x="212" y="739" text-anchor="middle" fill="#FAF7F2" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="1">ASK ABOUT AVAILABILITY</text>
+  <defs>
+    <linearGradient id="panel" x1="76" y1="74" x2="612" y2="826" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBFDFC"/>
+      <stop offset="1" stop-color="#DCE6E2"/>
+    </linearGradient>
+  </defs>
+</svg>

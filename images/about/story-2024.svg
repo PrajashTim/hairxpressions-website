@@ -1,0 +1,24 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" fill="#F4EFE6"/>
+  <rect x="42" y="42" width="816" height="1016" rx="28" fill="url(#panel)"/>
+  <circle cx="722" cy="160" r="118" fill="#D4B483" fill-opacity="0.18"/>
+  <circle cx="176" cy="848" r="154" fill="#A1A98C" fill-opacity="0.15"/>
+  <path d="M160 802C252 708 338 612 424 486C502 372 562 270 648 194" stroke="#8B6D3F" stroke-width="4" stroke-linecap="round"/>
+  <path d="M214 856C304 770 388 684 462 576C540 464 600 380 682 314" stroke="#FAF7F2" stroke-opacity="0.85" stroke-width="3" stroke-linecap="round"/>
+  <rect x="112" y="112" width="196" height="38" rx="19" fill="#FAF7F2"/>
+  <text x="210" y="137" text-anchor="middle" fill="#8B6D3F" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">THE CURRENT ERA</text>
+  <text x="112" y="278" fill="#2C2520" font-family="Cormorant Garamond, Georgia, serif" font-size="112" font-weight="500">2024</text>
+  <text x="112" y="386" fill="#2C2520" font-family="Cormorant Garamond, Georgia, serif" font-size="74" font-weight="500">A new chapter</text>
+  <text x="112" y="454" fill="#6B5D52" font-family="Inter, Arial, sans-serif" font-size="28">Fresh energy, specialty brow services,</text>
+  <text x="112" y="498" fill="#6B5D52" font-family="Inter, Arial, sans-serif" font-size="28">and the same promise clients already trust.</text>
+  <text x="112" y="572" fill="#6B5D52" font-family="Inter, Arial, sans-serif" font-size="24">This card stands in until new owner portraits arrive,</text>
+  <text x="112" y="610" fill="#6B5D52" font-family="Inter, Arial, sans-serif" font-size="24">but it still keeps the page rooted in the salon story.</text>
+  <rect x="112" y="834" width="246" height="56" rx="28" fill="#2C2520"/>
+  <text x="235" y="868" text-anchor="middle" fill="#FAF7F2" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="1">OWNER-LED GROWTH</text>
+  <defs>
+    <linearGradient id="panel" x1="92" y1="76" x2="794" y2="1014" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDF9"/>
+      <stop offset="1" stop-color="#E6DED2"/>
+    </linearGradient>
+  </defs>
+</svg>

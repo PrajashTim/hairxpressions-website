@@ -4,19 +4,19 @@
 =================================================================== */
 
 (function () {
-  // Determine path prefix (root vs services/ subfolder)
   const path = window.location.pathname.replace(/\\/g, '/');
   const inServices = /\/services\//.test(path);
   const P = inServices ? '../' : '';
+  const BOOK_URL = 'https://book.squareup.com/appointments/ckyv1ce3u3hpmb/location/LSXPGB4JF4Y6N/services';
 
   const trustBarHTML = `
     <div class="trust-bar">
       <div class="container">
-        <span><span class="stars">★★★★★</span> Rated on Yelp &amp; Google</span>
+        <span><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Rated on Yelp &amp; Google</span>
         <span class="divider">|</span>
         <span>Est. <strong>1984</strong> &middot; 40+ Years on Braddock Rd</span>
         <span class="divider">|</span>
-        <a href="tel:7039783406">📞 703-978-3406</a>
+        <a href="tel:7039783406">Call 703-978-3406</a>
       </div>
     </div>
   `;
@@ -26,7 +26,7 @@
       <div class="container navbar-inner">
         <a href="${P}index.html" class="brand">
           <span class="brand-name">Hair Xpressions</span>
-          <span class="brand-tag">Fairfax · Est. 1984</span>
+          <span class="brand-tag">Fairfax &middot; Est. 1984</span>
         </a>
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -34,8 +34,8 @@
         <ul class="nav-links">
           <li><a href="${P}index.html">Home</a></li>
           <li class="nav-item">
-            <a href="${P}services/hair-color.html" class="has-drop">Services</a>
-            <div class="dropdown">
+            <button type="button" class="nav-drop-toggle has-drop" aria-expanded="false" aria-haspopup="true" aria-controls="services-dropdown">Services</button>
+            <div class="dropdown" id="services-dropdown">
               <a href="${P}services/hair-color.html">Hair &amp; Color</a>
               <a href="${P}services/keratin.html">Keratin &amp; Treatments</a>
               <a href="${P}services/waxing-threading.html">Waxing &amp; Threading</a>
@@ -51,7 +51,7 @@
         </ul>
         <div class="nav-cta">
           <a class="nav-phone" href="tel:7039783406">703-978-3406</a>
-          <a class="btn btn-primary btn-sm" href="${P}contact.html#book">Book Now</a>
+          <a class="btn btn-primary btn-sm" href="${BOOK_URL}">Book Now</a>
         </div>
       </div>
     </nav>
@@ -64,7 +64,7 @@
           <div class="footer-brand">
             <a href="${P}index.html" class="brand">
               <span class="brand-name">Hair Xpressions</span>
-              <span class="brand-tag">Fairfax · Est. 1984</span>
+              <span class="brand-tag">Fairfax &middot; Est. 1984</span>
             </a>
             <p>Fairfax's full-service neighborhood beauty destination. Expert stylists, every service, forty years, and we still remember your name.</p>
             <div class="footer-social mt-3">
@@ -107,7 +107,7 @@
               <li><a href="${P}gallery.html">Gallery</a></li>
               <li><a href="${P}about.html">Our Story</a></li>
               <li><a href="${P}contact.html#gift">Gift Cards</a></li>
-              <li><a href="${P}contact.html#book">Book Appointment</a></li>
+              <li><a href="${BOOK_URL}">Book Appointment</a></li>
             </ul>
           </div>
         </div>
@@ -120,19 +120,31 @@
     </footer>
   `;
 
-  // Inject into placeholders
-  document.querySelectorAll('[data-partial="trust-bar"]').forEach(el => el.outerHTML = trustBarHTML);
-  document.querySelectorAll('[data-partial="navbar"]').forEach(el => el.outerHTML = navbarHTML);
-  document.querySelectorAll('[data-partial="footer"]').forEach(el => el.outerHTML = footerHTML);
+  document.querySelectorAll('[data-partial="trust-bar"]').forEach((el) => {
+    el.outerHTML = trustBarHTML;
+  });
+  document.querySelectorAll('[data-partial="navbar"]').forEach((el) => {
+    el.outerHTML = navbarHTML;
+  });
+  document.querySelectorAll('[data-partial="footer"]').forEach((el) => {
+    el.outerHTML = footerHTML;
+  });
 
-  // Highlight current page in nav
   const here = (path.split('/').pop() || 'index.html').toLowerCase();
-  document.querySelectorAll('.nav-links a').forEach(a => {
+  document.querySelectorAll('.nav-links a').forEach((a) => {
     const href = (a.getAttribute('href') || '').split('/').pop().toLowerCase();
     if (href === here && here !== 'index.html') a.style.color = 'var(--gold-dark)';
-    if (here.startsWith('hair-') || here.startsWith('waxing-') || here.startsWith('brow-') || here === 'facials.html' || here === 'keratin.html' || here === 'bridal.html') {
-      const services = document.querySelector('.nav-links .has-drop');
-      if (services) services.style.color = 'var(--gold-dark)';
-    }
   });
+
+  if (
+    here.startsWith('hair-') ||
+    here.startsWith('waxing-') ||
+    here.startsWith('brow-') ||
+    here === 'facials.html' ||
+    here === 'keratin.html' ||
+    here === 'bridal.html'
+  ) {
+    const services = document.querySelector('.nav-links .has-drop');
+    if (services) services.style.color = 'var(--gold-dark)';
+  }
 })();

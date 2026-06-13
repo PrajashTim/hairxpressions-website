@@ -1,0 +1,23 @@
+<svg width="700" height="900" viewBox="0 0 700 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="700" height="900" fill="#F6EEE3"/>
+  <rect x="36" y="36" width="628" height="828" rx="28" fill="url(#panel)"/>
+  <circle cx="575" cy="160" r="94" fill="#E7D5BE" fill-opacity="0.6"/>
+  <circle cx="130" cy="735" r="124" fill="#E2C7A0" fill-opacity="0.45"/>
+  <path d="M180 620C226 560 276 498 322 430C356 379 384 322 424 278C454 246 494 226 534 220" stroke="#B8935A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M208 662C250 604 296 548 338 488C376 435 406 376 446 330C472 300 504 278 540 266" stroke="#8B6D3F" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"/>
+  <path d="M234 694C282 638 322 588 364 536C406 486 444 432 480 388" stroke="#FFFFFF" stroke-opacity="0.65" stroke-width="2" stroke-linecap="round"/>
+  <rect x="92" y="112" width="238" height="34" rx="17" fill="#F8F1E8"/>
+  <text x="211" y="134" fill="#8B6D3F" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">SKINCARE AT HAIR XPRESSIONS</text>
+  <text x="92" y="252" fill="#2C2520" font-family="Cormorant Garamond, Georgia, serif" font-size="78" font-weight="500">Facial</text>
+  <text x="92" y="328" fill="#2C2520" font-family="Cormorant Garamond, Georgia, serif" font-size="78" font-weight="500">Treatments</text>
+  <text x="92" y="404" fill="#6B5D52" font-family="Inter, Arial, sans-serif" font-size="24">European facial, HydraMedic, and deep-cleansing care.</text>
+  <text x="92" y="460" fill="#6B5D52" font-family="Inter, Arial, sans-serif" font-size="22">Real treatment photography can drop in here as soon as it arrives.</text>
+  <rect x="92" y="730" width="238" height="56" rx="28" fill="#2C2520"/>
+  <text x="211" y="764" text-anchor="middle" fill="#FAF7F2" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="1">ESTHETICIAN SERVICES</text>
+  <defs>
+    <linearGradient id="panel" x1="88" y1="76" x2="612" y2="824" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF7F1"/>
+      <stop offset="1" stop-color="#EEDFD0"/>
+    </linearGradient>
+  </defs>
+</svg>

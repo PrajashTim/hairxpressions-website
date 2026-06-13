@@ -1,7 +1,7 @@
 /* ===================================================================
    Hair Xpressions - Site JS
    - Mobile nav toggle
-   - Dropdown toggle (mobile)
+   - Dropdown toggle
    - FAQ accordion
    - Gallery filter
    - Count-up stat animation
@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
 });
 
-/* -------- Mobile nav -------- */
 function initMobileNav() {
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
@@ -29,32 +28,68 @@ function initMobileNav() {
     toggle.setAttribute('aria-expanded', expanded);
   });
 
-  // Close on link tap (mobile)
-  links.querySelectorAll('a').forEach(a => {
+  links.querySelectorAll('a').forEach((a) => {
     a.addEventListener('click', () => {
-      if (window.innerWidth <= 880 && !a.parentElement.classList.contains('nav-item')) {
+      if (window.innerWidth <= 880) {
         toggle.classList.remove('is-open');
         links.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
       }
     });
   });
 }
 
-/* -------- Dropdowns (mobile click to expand) -------- */
 function initDropdowns() {
-  document.querySelectorAll('.nav-item > a.has-drop').forEach(a => {
-    a.addEventListener('click', (e) => {
-      if (window.innerWidth <= 880) {
-        e.preventDefault();
-        a.parentElement.classList.toggle('is-open');
+  const navItems = document.querySelectorAll('.nav-item');
+  if (!navItems.length) return;
+
+  const closeAllDropdowns = () => {
+    navItems.forEach((item) => {
+      item.classList.remove('is-open');
+      const toggle = item.querySelector('.has-drop');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    });
+  };
+
+  navItems.forEach((item) => {
+    const toggle = item.querySelector('.has-drop');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const willOpen = !item.classList.contains('is-open');
+      closeAllDropdowns();
+
+      if (willOpen) {
+        item.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
       }
     });
+
+    item.querySelectorAll('.dropdown a').forEach((link) => {
+      link.addEventListener('click', () => {
+        closeAllDropdowns();
+      });
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-item')) closeAllDropdowns();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAllDropdowns();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 880) closeAllDropdowns();
   });
 }
 
-/* -------- FAQ accordion -------- */
 function initFAQ() {
-  document.querySelectorAll('.faq-q').forEach(btn => {
+  document.querySelectorAll('.faq-q').forEach((btn) => {
     btn.addEventListener('click', () => {
       const item = btn.parentElement;
       item.classList.toggle('is-open');
@@ -62,30 +97,24 @@ function initFAQ() {
   });
 }
 
-/* -------- Gallery filter -------- */
 function initGalleryFilter() {
   const tabs = document.querySelectorAll('.filter-tab');
   const items = document.querySelectorAll('.gallery-grid .gallery-item');
   if (!tabs.length || !items.length) return;
 
-  tabs.forEach(tab => {
+  tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('is-active'));
+      tabs.forEach((t) => t.classList.remove('is-active'));
       tab.classList.add('is-active');
       const filter = tab.dataset.filter;
-      items.forEach(item => {
+      items.forEach((item) => {
         const cats = (item.dataset.cat || '').split(' ');
-        if (filter === 'all' || cats.includes(filter)) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
+        item.style.display = filter === 'all' || cats.includes(filter) ? '' : 'none';
       });
     });
   });
 }
 
-/* -------- Count-up numbers on view -------- */
 function initCountUp() {
   const els = document.querySelectorAll('[data-countup]');
   if (!els.length) return;
@@ -99,18 +128,18 @@ function initCountUp() {
 
     const tick = (now) => {
       const t = Math.min(1, (now - start) / duration);
-      // ease out cubic
       const eased = 1 - Math.pow(1 - t, 3);
       const val = Math.floor(startVal + (target - startVal) * eased);
       el.textContent = val.toLocaleString() + suffix;
       if (t < 1) requestAnimationFrame(tick);
       else el.textContent = target.toLocaleString() + suffix;
     };
+
     requestAnimationFrame(tick);
   };
 
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         animate(entry.target);
         io.unobserve(entry.target);
@@ -118,12 +147,11 @@ function initCountUp() {
     });
   }, { threshold: 0.4 });
 
-  els.forEach(el => io.observe(el));
+  els.forEach((el) => io.observe(el));
 }
 
-/* -------- Smooth scroll for in-page anchors -------- */
 function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
       if (id.length > 1) {

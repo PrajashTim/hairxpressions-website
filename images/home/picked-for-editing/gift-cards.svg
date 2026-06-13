@@ -1,0 +1,20 @@
+<svg width="900" height="600" viewBox="0 0 900 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="600" fill="#1F1A16"/>
+  <rect x="42" y="42" width="816" height="516" rx="28" fill="url(#card)" stroke="#D4B483" stroke-width="2"/>
+  <circle cx="742" cy="140" r="110" fill="#B8935A" fill-opacity="0.16"/>
+  <circle cx="156" cy="466" r="142" fill="#D4B483" fill-opacity="0.12"/>
+  <path d="M146 152H754" stroke="#D4B483" stroke-opacity="0.35" stroke-width="2"/>
+  <path d="M146 448H754" stroke="#D4B483" stroke-opacity="0.18" stroke-width="2"/>
+  <text x="146" y="128" fill="#D4B483" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">HAIR XPRESSIONS</text>
+  <text x="146" y="270" fill="#FAF7F2" font-family="Cormorant Garamond, Georgia, serif" font-size="100" font-weight="500">Gift Card</text>
+  <text x="146" y="334" fill="#E9DCCB" font-family="Inter, Arial, sans-serif" font-size="28">A thoughtful way to treat someone to color, care, or a confidence boost.</text>
+  <text x="146" y="394" fill="#CDB9A1" font-family="Inter, Arial, sans-serif" font-size="24">Available in any amount for birthdays, thank-yous, and last-minute pampering.</text>
+  <rect x="146" y="468" width="212" height="52" rx="26" fill="#FAF7F2"/>
+  <text x="252" y="500" text-anchor="middle" fill="#2C2520" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="1">PURCHASE ONLINE</text>
+  <defs>
+    <linearGradient id="card" x1="96" y1="72" x2="812" y2="534" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#312923"/>
+      <stop offset="1" stop-color="#241E1A"/>
+    </linearGradient>
+  </defs>
+</svg>

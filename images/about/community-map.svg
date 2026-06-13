@@ -1,0 +1,24 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" fill="#F6EEE3"/>
+  <rect x="42" y="42" width="816" height="1016" rx="28" fill="url(#panel)"/>
+  <path d="M176 250H720" stroke="#D4B483" stroke-width="18" stroke-linecap="round"/>
+  <path d="M222 364H686" stroke="#E3C9A7" stroke-width="14" stroke-linecap="round"/>
+  <path d="M188 518H740" stroke="#D4B483" stroke-width="12" stroke-linecap="round"/>
+  <path d="M264 172V892" stroke="#D4B483" stroke-width="12" stroke-linecap="round"/>
+  <path d="M448 138V930" stroke="#E3C9A7" stroke-width="16" stroke-linecap="round"/>
+  <path d="M628 198V866" stroke="#D4B483" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="448" cy="518" r="62" fill="#2C2520"/>
+  <circle cx="448" cy="518" r="36" fill="#B8935A"/>
+  <text x="448" y="525" text-anchor="middle" fill="#FAF7F2" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">HX</text>
+  <rect x="110" y="108" width="206" height="38" rx="19" fill="#FAF7F2"/>
+  <text x="213" y="133" text-anchor="middle" fill="#8B6D3F" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">BRADDOCK ROAD</text>
+  <text x="110" y="736" fill="#2C2520" font-family="Cormorant Garamond, Georgia, serif" font-size="76" font-weight="500">Serving Fairfax</text>
+  <text x="110" y="804" fill="#6B5D52" font-family="Inter, Arial, sans-serif" font-size="28">Burke, Springfield, Annandale,</text>
+  <text x="110" y="848" fill="#6B5D52" font-family="Inter, Arial, sans-serif" font-size="28">and the Braddock Road corridor.</text>
+  <defs>
+    <linearGradient id="panel" x1="86" y1="74" x2="814" y2="1026" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDF9"/>
+      <stop offset="1" stop-color="#EEE0CF"/>
+    </linearGradient>
+  </defs>
+</svg>
