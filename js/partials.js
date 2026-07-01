@@ -90,7 +90,7 @@
               <li>9549 Braddock Rd</li>
               <li>Fairfax, VA 22032</li>
               <li><a href="tel:7039783406">703-978-3406</a></li>
-              <li><a href="tel:7036067520">703-606-7520</a> <span style="font-size:0.78rem;opacity:0.6">(text/call)</span></li>
+              <li><a href="tel:5715289753">571-528-9753</a> <span style="font-size:0.78rem;opacity:0.6">(text/call)</span></li>
               <li><a href="mailto:info@hairxpressionsva.com">info@hairxpressionsva.com</a></li>
             </ul>
             <h4 class="mt-4">Hours</h4>
