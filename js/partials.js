@@ -5,8 +5,8 @@
 
 (function () {
   const path = window.location.pathname.replace(/\\/g, '/');
-  const inServices = /\/services\//.test(path);
-  const P = inServices ? '../' : '';
+  const inNestedPage = /\/(services|blog)\//.test(path);
+  const P = inNestedPage ? '../' : '';
   const BOOK_URL = 'https://book.squareup.com/appointments/ckyv1ce3u3hpmb/location/LSXPGB4JF4Y6N/services';
 
   const trustBarHTML = `
@@ -46,6 +46,7 @@
           </li>
           <li><a href="${P}team.html">Our Team</a></li>
           <li><a href="${P}gallery.html">Gallery</a></li>
+          <li><a href="${P}blog/index.html">Journal</a></li>
           <li><a href="${P}about.html">About</a></li>
           <li><a href="${P}contact.html">Contact</a></li>
         </ul>
@@ -105,6 +106,7 @@
             <ul class="footer-list">
               <li><a href="${P}team.html">Our Team</a></li>
               <li><a href="${P}gallery.html">Gallery</a></li>
+              <li><a href="${P}blog/index.html">Journal</a></li>
               <li><a href="${P}about.html">Our Story</a></li>
               <li><a href="${P}contact.html#gift">Gift Cards</a></li>
               <li><a href="${BOOK_URL}">Book Appointment</a></li>
@@ -134,6 +136,9 @@
   document.querySelectorAll('.nav-links a').forEach((a) => {
     const href = (a.getAttribute('href') || '').split('/').pop().toLowerCase();
     if (href === here && here !== 'index.html') a.style.color = 'var(--gold-dark)';
+    if (/\/blog\//.test(path) && /blog\/index\.html$/.test(a.getAttribute('href') || '')) {
+      a.style.color = 'var(--gold-dark)';
+    }
   });
 
   if (
