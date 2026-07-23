@@ -1,0 +1,73 @@
+name: Generate blog draft
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic_id:
+        description: Content Pipeline row ID
+        required: true
+        type: string
+      title:
+        description: Approved working title from Content Pipeline
+        required: true
+        type: string
+      slug:
+        description: URL-safe blog filename without .html
+        required: true
+        type: string
+      cluster:
+        description: Service cluster
+        required: false
+        default: General
+        type: string
+      target_keyword:
+        description: Primary local-search phrase
+        required: false
+        default: ""
+        type: string
+      local_intent:
+        description: Reader intent / booking context
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the live site source
+        uses: actions/checkout@v4
+
+      - name: Generate a reviewable article draft
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.6-luna' }}
+          TOPIC_ID: ${{ inputs.topic_id }}
+          TITLE: ${{ inputs.title }}
+          SLUG: ${{ inputs.slug }}
+          CLUSTER: ${{ inputs.cluster }}
+          TARGET_KEYWORD: ${{ inputs.target_keyword }}
+          LOCAL_INTENT: ${{ inputs.local_intent }}
+        run: node automation/generate-draft-post.mjs
+
+      - name: Create a draft pull request for review
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: automation/blog-draft-${{ inputs.topic_id }}-${{ github.run_id }}
+          delete-branch: true
+          commit-message: "Draft blog post: ${{ inputs.title }}"
+          title: "Draft blog: ${{ inputs.title }}"
+          body: |
+            Generated from Content Pipeline row ${{ inputs.topic_id }}.
+
+            Review the copy, service claims, image choice, internal links, and local wording before marking this pull request ready and merging it.
+          draft: true
+          add-paths: |
+            blog/${{ inputs.slug }}.html
+            blog/index.html
+            index.html

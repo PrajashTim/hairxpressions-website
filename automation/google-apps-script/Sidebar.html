@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body { font: 14px/1.45 Arial, sans-serif; color: #17202a; margin: 0; padding: 20px; background: #faf7f4; }
+      h1 { font: 600 24px Georgia, serif; color: #782d4b; margin: 0 0 8px; }
+      p { margin: 0 0 16px; color: #4c5965; }
+      label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin: 18px 0 7px; color: #4c5965; }
+      select, button { box-sizing: border-box; width: 100%; border-radius: 7px; font: inherit; }
+      select { border: 1px solid #cfd7dc; padding: 10px; background: #fff; }
+      button { border: 0; padding: 12px 14px; background: #782d4b; color: #fff; font-weight: 700; cursor: pointer; margin-top: 16px; }
+      button:disabled { opacity: .6; cursor: wait; }
+      .topic { margin-top: 14px; padding: 13px; background: #fff; border-left: 3px solid #c79a3b; border-radius: 4px; }
+      .topic strong { display: block; color: #17202a; }
+      .topic span { display: block; margin-top: 5px; font-size: 12px; color: #65737e; }
+      .note { margin-top: 18px; padding-top: 14px; border-top: 1px solid #dfd6d0; font-size: 12px; }
+      .status { margin-top: 14px; font-weight: 600; color: #176343; }
+      .error { color: #9b2929; }
+      a { color: #782d4b; }
+    </style>
+  </head>
+  <body>
+    <h1>Content Studio</h1>
+    <p>Select a Ready topic. The system creates a draft pull request for you to review—nothing is published automatically.</p>
+    <label for="topic">Next ready topic</label>
+    <select id="topic" onchange="renderTopic()"></select>
+    <div id="topicDetail" class="topic"></div>
+    <button id="generate" onclick="generateDraft()">Create review draft</button>
+    <div id="status" class="status"></div>
+    <p class="note">Before the first use, click <strong>Content Studio → Connect GitHub</strong> in the Sheet menu. The actual AI key remains securely in GitHub, never in this Sheet.</p>
+    <script>
+      let topics = [];
+      const status = (message, isError) => {
+        const el = document.getElementById('status');
+        el.textContent = message || '';
+        el.className = isError ? 'status error' : 'status';
+      };
+      const renderTopic = () => {
+        const current = topics.find(t => String(t.id) === document.getElementById('topic').value);
+        const detail = document.getElementById('topicDetail');
+        if (!current) return detail.textContent = 'No Ready topics are available yet.';
+        detail.innerHTML = `<strong>${escapeHtml(current.title)}</strong><span>${escapeHtml(current.cluster || 'General')} · ${escapeHtml(current.targetKeyword || 'No keyword assigned')}</span>`;
+      };
+      const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+      const loadTopics = () => google.script.run
+        .withSuccessHandler(items => {
+          topics = items;
+          const select = document.getElementById('topic');
+          select.innerHTML = items.length ? items.map(item => `<option value="${escapeHtml(item.id)}">#${escapeHtml(item.id)} — ${escapeHtml(item.title)}</option>`).join('') : '<option>No Ready topics</option>';
+          document.getElementById('generate').disabled = !items.length;
+          renderTopic();
+        })
+        .withFailureHandler(error => status(error.message, true))
+        .getReadyTopics();
+      const generateDraft = () => {
+        const button = document.getElementById('generate');
+        button.disabled = true;
+        status('Building your draft…');
+        google.script.run
+          .withSuccessHandler(result => {
+            status('Draft requested. GitHub is now building it.');
+            document.getElementById('topicDetail').innerHTML += `<span><a href="${result.workflowUrl}" target="_blank">Open draft progress in GitHub</a></span>`;
+          })
+          .withFailureHandler(error => {
+            status(error.message, true);
+            button.disabled = false;
+          })
+          .requestDraft(document.getElementById('topic').value);
+      };
+      loadTopics();
+    </script>
+  </body>
+</html>
