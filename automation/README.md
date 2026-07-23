@@ -34,6 +34,23 @@ Create a fine-grained GitHub personal access token limited to the `PrajashTim/ha
 
 Use Square bookings and attributed revenue as the weekly outcome fields in **Performance Log**. Square can show booking outcomes; it cannot by itself prove every website booking-button click. Add GA4 later only if you want automated click attribution or broader website-traffic reporting.
 
+## SEO feedback loop
+
+Choose **Content Studio → Set up SEO feedback loop** once. It creates four tabs:
+
+- **SEO Tracker** — the priority local queries, target page, baseline/current organic rank, Search Console data, Square outcomes, and formula-driven next action.
+- **SEO Dashboard** — a quick view of top-three wins, page-one wins, improving queries, Google clicks, and Square results.
+- **Rank Check Log** — one consistent weekly record of the exact local organic position you observe for each query.
+- **Search Console Data** — the raw 28-day query and page data imported by the script.
+
+### Search Console setup (free, recommended)
+
+Google Search Console is separate from GitHub, GoDaddy, and GA4. Add and verify `hairxpressionsva.com` in Search Console (a domain property is verified with a DNS record at GoDaddy), then open **Extensions → Apps Script → Services** in the Sheet project and enable **Search Console API**. In the Sheet, choose **Content Studio → Connect Search Console**, set the verified property, then choose **Refresh SEO metrics**.
+
+Search Console provides real impressions, clicks, CTR, and an average search position for each query/page pair. It is the correct source for directional SEO performance, but its average position is not the same as a single person’s exact Fairfax search result. Keep the **Rank Check Log** consistent (same local area, device, and result type) for the local rank baseline and trend. A paid location-specific rank-tracker can replace that manual input later if you want automated exact local positions.
+
+Each week, follow the loop: refresh Search Console → record the local ranks → enter Square outcomes → take the next action shown in **SEO Tracker** → draft the supporting post or refresh the target page → repeat. The system is designed to direct effort toward evidence, not promise a #1 result.
+
 ## Safety rules built into the generator
 
 - creates a draft PR only—never a direct production publish;
